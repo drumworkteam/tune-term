@@ -119,19 +119,10 @@ function compile(i, j, size) {
   while (true) {
     const x = permute(i++, E, j, O, U)
     const result = convertBigIntToSmallIntegerArray(size, x, i => i % 2 === 0 ? 32n : 16n)
-
-    let chunks = result.map((x, i) => {
-      if (i % 2 === 0) {
-        return startSyllables[x]
-      } else {
-        return endSyllables[x]
-      }
-    }).join('')
-
+    const chunks = result.map((x, i) => i % 2 === 0 ? startSyllables[x] :  endSyllables[x]).join('')
     if (chunks.match(incorrectSequencePattern)) {
       continue
     }
-
     const chunked = chunkArray(chunks.split(''), 4).map(x => x.join('')).join(':')
     return [i, chunked]
   }
