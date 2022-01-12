@@ -87,9 +87,9 @@ function compile(i, size) {
     const x = permute(i++, E, A, O, U)
     const result = convertBigIntToSmallIntegerArray(x, i => i % 2 === 0 ? 32n : 16n)
 
-    // while (result.length !== (size / 2)) {
-    //   result.push(0)
-    // }
+    while (result.length !== (size / 2)) {
+      result.push(0)
+    }
 
     let chunks = result.map((x, i) => {
       if (i % 2 === 0) {
