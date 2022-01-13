@@ -1,7 +1,8 @@
 {
   "name": "@drumwork/tune-term",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "dependencies": {
     "@lancejpollard/quadratic-residue-prng.js": "^1.0.0"
-  }
+  },
+  "main": "form.js"
 }
